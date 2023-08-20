@@ -11,18 +11,18 @@ module.exports = {
         const getVerifyCode = `SELECT  verify_code
                                 FROM users
                                 where verify_code = '${verifyCode}'`
-        const result = await dbConnect.query(getVerifyCode)
+        const result = await dbConnect(getVerifyCode)
         if(result?.length>0){
 
             const updatePasswordQuery = `UPDATE users
             SET  password = '${password}'
             WHERE verify_code = '${verifyCode}' `
-            await dbConnect.query(updatePasswordQuery)
+            await dbConnect(updatePasswordQuery)
 
             const deleteResetTokenQuery = `UPDATE users
             SET  verify_code = null
             WHERE verify_code = '${verifyCode}'; `
-            dbConnect.query(deleteResetTokenQuery)
+            dbConnect(deleteResetTokenQuery)
 
             return res.status(200).send({message:"Password has changed!",status_code:200});
 

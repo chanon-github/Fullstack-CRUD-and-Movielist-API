@@ -8,9 +8,9 @@ var registerService = require('../services/registerService')
     '/',
     registerService.register
   )
-  router.get(
-    '/get',
-    registerService.get
-  )
+  // router.get(
+  //   '/get',
+  //   registerService.get
+  // )
 
 module.exports = router;

@@ -21,7 +21,7 @@ module.exports = {
 
         }else{
             try{
-                await dbConnect.query(sqlQueryStr)
+                await dbConnect(sqlQueryStr)
                 return res.status(200).send({message:"Register Success",status_code:200});
             }catch(err){
                 return res.status(400).send(err);
@@ -32,7 +32,7 @@ module.exports = {
     get: async (req, res) => {
         
         const sqlQueryStr = `SELECT * from users`
-        const result = await dbConnect.query(sqlQueryStr)
+        const result = await dbConnect(sqlQueryStr)
         return res.status(200).send({message:"Register Success",status_code:200,result:result});
  
     }

@@ -11,7 +11,7 @@
                             where '${email}' = email`
 
     try{
-        let result =  await dbConnect.query(sqlQueryStr)
+        let result =  await dbConnect(sqlQueryStr)
         if(result?.length > 0){
             return true
         }else{
@@ -29,7 +29,7 @@
                             where '${username}' = username`
 
     try{
-        let result =  await dbConnect.query(sqlQueryStr)
+        let result =  await dbConnect(sqlQueryStr)
         if(result?.length > 0){
             return true
         }else{

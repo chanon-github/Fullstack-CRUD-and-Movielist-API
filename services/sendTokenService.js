@@ -19,13 +19,13 @@ module.exports = {
             SET  verify_code = null
             WHERE email = '${email}'; `
 
-            await dbConnect.query(setResetTokenQuery)
+            await dbConnect(setResetTokenQuery)
             utils.sendEmail([email],'Reset Your Password',`Verify Code For Reset Your Password : ${resetToken} This code is expire in 5 minutes`)
 
           
             setTimeout(() => {
                 console.log('remove token email>>',email)
-                dbConnect.query(deleteResetTokenQuery)
+                dbConnect(deleteResetTokenQuery)
               }, 300000);
       
             
