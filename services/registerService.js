@@ -16,8 +16,6 @@ module.exports = {
         const sqlQueryStr = `INSERT INTO users 
                                 (username, password, email)
                                 VALUES('${username}', '${hashPwd}', '${email}')`
-       
-    
 
         if(isUsernameDuplicate ){
             
