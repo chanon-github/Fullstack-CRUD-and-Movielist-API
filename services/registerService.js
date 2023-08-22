@@ -12,7 +12,7 @@ module.exports = {
         const isUsernameDuplicate = await utils.checkUsernameDuplicate(username)
         var salt = bcrypt.genSaltSync(10);
         var hashPwd = bcrypt.hashSync(password, salt);
-        console.log('hashPwd',hashPwd)
+
         const sqlQueryStr = `INSERT INTO users 
                                 (username, password, email)
                                 VALUES('${username}', '${hashPwd}', '${email}')`
