@@ -18,7 +18,7 @@ module.exports = {
                                                  SET  login_date = now()
                                                  WHERE username = '${username}'; `
                  await dbConnect(updateLoginDateQuery)
-                 const token = jwt.sign({ username : username}, 'mysecret', { expiresIn: '1h' });
+                 const token = jwt.sign({ username : username}, 'mysecret', { expiresIn: '2h' });
                  return res.status(200).send({message:"Login Successful!",login_date:moment().format('MM-DD-YYYY HH:mm:SS'),token:token,status_code:200});
              }else{
                  return res.status(400).send({message:"Username or Password incorrect",status_code:400});
