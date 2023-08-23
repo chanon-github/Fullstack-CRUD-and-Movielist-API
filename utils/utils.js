@@ -43,8 +43,11 @@
 
 const sendEmail = async (sendingList=[],subject='',text='') =>{
 
-    const email = 'chanon.exam@gmail.com'
-    const emailPass = 'zmsznuwummsjnhxu'
+    // const email = 'chanon.exam@gmail.com'
+    // const emailPass = 'zmsznuwummsjnhxu'
+    
+    const email = 'noreplyemail.mailer@gmail.com'
+    const emailPass = 'ttvlrvzwvmueqpar'
 
     var transporter = nodemailer.createTransport({
         service: 'gmail',
