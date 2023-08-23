@@ -20,16 +20,29 @@ module.exports = {
             WHERE email = '${email}'; `
 
             await dbConnect(setResetTokenQuery)
-            utils.sendEmail([email],'Reset Your Password',`Verify Code For Reset Your Password : ${resetToken} This code is expire in 5 minutes`)
+
+            try {
+                await utils.sendEmail([email],'Reset Your Password',`Verify Code For Reset Your Password : ${resetToken} This code is expire in 5 minutes`)
+                setTimeout(() => {
+                    console.log('remove token email>>',email)
+                    dbConnect(deleteResetTokenQuery)
+                  }, 300000);
+                return res.status(200).send({message:"Send Token to your email",status_code:200});
+                
+              } catch (err) {
+                console.log('err>>>',err)
+                return res.status(400).send({message:"Email not found"+err,status_code:400});
+
+              }
 
           
-            setTimeout(() => {
-                console.log('remove token email>>',email)
-                dbConnect(deleteResetTokenQuery)
-              }, 300000);
+            // setTimeout(() => {
+            //     console.log('remove token email>>',email)
+            //     dbConnect(deleteResetTokenQuery)
+            //   }, 300000);
       
             
-            return res.status(200).send({message:"Send Token to your email",status_code:200});
+            // return res.status(200).send({message:"Send Token to your email",status_code:200});
         }else{
             return res.status(400).send({message:"Email not found",status_code:400});
         }
