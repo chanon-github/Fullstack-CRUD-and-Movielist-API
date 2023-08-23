@@ -48,7 +48,7 @@ const sendEmail = async (sendingList=[],subject='',text='') =>{
 
     var transporter = nodemailer.createTransport({
         service: 'gmail',
-        secure: false,
+        secure: true,
         port: 465,
         auth: {
             user: email,
