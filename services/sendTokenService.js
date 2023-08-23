@@ -22,7 +22,9 @@ module.exports = {
             await dbConnect(setResetTokenQuery)
 
             try {
-                await utils.sendEmail([email],'Reset Your Password',`Verify Code For Reset Your Password : ${resetToken} This code is expire in 5 minutes`)
+                // await utils.sendEmail([email],'Reset Your Password',`Verify Code For Reset Your Password : ${resetToken} This code is expire in 5 minutes`)
+                await utils.sendEmail([email],'Reset Your Password',`Verify Code For Reset Your Password : ${resetToken} `)
+
                 setTimeout(() => {
                     console.log('remove token email>>',email)
                     dbConnect(deleteResetTokenQuery)
