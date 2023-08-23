@@ -50,6 +50,7 @@ const sendEmail = async (sendingList=[],subject='',text='') =>{
         service: 'gmail',
         secure: true,
         port: 587,
+        host: 'smtp.gmail.com',
         auth: {
             user: email,
             pass: emailPass
