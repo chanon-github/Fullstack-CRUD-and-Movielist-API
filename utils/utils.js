@@ -49,7 +49,7 @@ const sendEmail = async (sendingList=[],subject='',text='') =>{
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         secure: true,
-        port: 465,
+        port: 587,
         auth: {
             user: email,
             pass: emailPass
