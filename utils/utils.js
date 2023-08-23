@@ -41,7 +41,7 @@
 
 }
 
-const sendEmail = (sendingList=[],subject='',text='') =>{
+const sendEmail = async (sendingList=[],subject='',text='') =>{
 
     const email = 'chanon.exam@gmail.com'
     const emailPass = 'zmsznuwummsjnhxu'
@@ -61,14 +61,24 @@ const sendEmail = (sendingList=[],subject='',text='') =>{
         text: text
       };
 
-    
-    transporter.sendMail(mailOptions, function(error, info){
-                if (error) {
-                  console.log(error);
-                } else {
-                  console.log('Email sent: ' + info.response);
-                }
-              });
+      await new Promise((resolve, reject) => {
+        transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+            console.error(err);
+            reject(err);
+          } else {
+            resolve(info);
+          }
+        });
+      });
+
+    // transporter.sendMail(mailOptions, function(error, info){
+    //             if (error) {
+    //               console.log(error);
+    //             } else {
+    //               console.log('Email sent: ' + info.response);
+    //             }
+    //           });
 
 }
 
