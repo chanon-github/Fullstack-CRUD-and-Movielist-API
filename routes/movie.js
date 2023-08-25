@@ -7,7 +7,7 @@ var verifyJwt = require('../middleware/jwt')
 
 router.get(
     '/',
-    // verifyJwt.verifyJwt,
+    verifyJwt.verifyJwt,
     movieService.get
 )
 

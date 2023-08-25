@@ -1,7 +1,7 @@
 
 var dbConnect = require("../db/connection")
 require("dotenv").config();
-const { API_KEY, API_GETMOVIE_DOMAIN, DB_USERNAME, DB_PORT, DB_NAME } = process.env;
+const { API_KEY, API_GETMOVIE_DOMAIN } = process.env;
 module.exports = {
   get: async (req, res) => {
     const id = req.query.id;
@@ -16,6 +16,7 @@ module.exports = {
         const result = await response.json(); 
         res.send(result)
     }
+    // res.send('dddddddddd')
 
   }
 };
