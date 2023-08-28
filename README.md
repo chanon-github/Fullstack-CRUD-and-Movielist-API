@@ -1,2 +1,3 @@
 # Fullstack-CRUD-and-Movielist-API
-# How to Install
+# Getting Started
+first create your database (MySql)
