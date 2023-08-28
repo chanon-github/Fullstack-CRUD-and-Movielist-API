@@ -39,3 +39,9 @@ create your .env file and add your variable for DB connection like this
 -DB_USERNAME = *your DB Username.*\
 -DB_PASSWORD = *your DB Password.*\
 -DB_PORT = *your DB Port.*
+
+
+# ADD TMDB API Key and Domain
+add this variable in your .env file
+-API_KEY = '1b74742621e5f615447f1bda197ecd71' \
+-API_GETMOVIE_DOMAIN = 'https://api.themoviedb.org/3/movie'
